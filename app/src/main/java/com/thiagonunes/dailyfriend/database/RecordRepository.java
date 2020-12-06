@@ -12,6 +12,7 @@ public class RecordRepository {
 
     private RecordDao mRecordDao;
     private LiveData<List<Record>> mAllRecords;
+    private LiveData<Record> mRecord;
 
     public RecordRepository(Application application) {
         RecordRoomDatabase db = RecordRoomDatabase.getDatabase(application);
@@ -21,6 +22,10 @@ public class RecordRepository {
 
     public LiveData<List<Record>> getAllRecords() {
         return mAllRecords;
+    }
+
+    public LiveData<Record> getRecord(int id){
+        return mRecordDao.getRecord(id);
     }
 
     public void insert (Record record) {

@@ -4,24 +4,26 @@ package com.thiagonunes.dailyfriend.model;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 @Entity(tableName = "record_table")
 public class Record {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    @NonNull
+    public int id;
 
     @ColumnInfo(name = "title")
-    private String title;
+    public String title;
 
-    @ColumnInfo(name = "data")
-    private String data;
+    @ColumnInfo(name = "text")
+    public String text;
 
     @ColumnInfo(name = "date")
-    private String date;
+    public String date;
 
     @ColumnInfo(name = "hour")
-    private String hour;
+    public String hour;
 
 
 

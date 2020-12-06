@@ -1,16 +1,31 @@
 package com.thiagonunes.dailyfriend;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.thiagonunes.dailyfriend.model.Record;
+import com.thiagonunes.dailyfriend.model.RecordsListViewModel;
+import com.thiagonunes.dailyfriend.recyclerview.RecordListAdapter;
+
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+
+    private RecordsListViewModel mRecordsListViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +35,23 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(view -> {
+        });
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        final RecordListAdapter adapter = new RecordListAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mRecordsListViewModel = ViewModelProviders.of(this).get(RecordsListViewModel.class);
+        mRecordsListViewModel.getAllRecords().observe(this, new Observer<List<Record>>() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onChanged(@Nullable List<Record> records) {
+                adapter.setRecordList(records);
+                adapter.notifyDataSetChanged();
             }
         });
+
     }
 
     @Override
