@@ -1,6 +1,7 @@
 package com.thiagonunes.dailyfriend.recyclerview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,17 +9,22 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.thiagonunes.dailyfriend.R;
+import com.thiagonunes.dailyfriend.RecordActivity;
 import com.thiagonunes.dailyfriend.model.Record;
+import com.thiagonunes.dailyfriend.utils.Constants;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class RecordListAdapter extends RecyclerView.Adapter<RecordListAdapter.RecordViewHolder> {
 
     private final LayoutInflater mInflater;
-    private List<Record> mRecordList; // Cached copy of words
+    private List<Record> mRecordList;
+    private final WeakReference<Context> mContextWeakReference;
 
     public RecordListAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
+        mContextWeakReference = new WeakReference<>(context);
     }
 
     @Override
@@ -31,10 +37,11 @@ public class RecordListAdapter extends RecyclerView.Adapter<RecordListAdapter.Re
     public void onBindViewHolder(RecordViewHolder holder, int position) {
         if (mRecordList != null) {
             Record current = mRecordList.get(position);
-            holder.recordItemTitle.setText(current.date);
-            holder.id = current.id;
+            holder.itemTitle.setText(current.title);
+            holder.itemDate.setText(current.date);
+            holder.itemHour.setText(current.hour);
         } else {
-            holder.recordItemTitle.setText("No record");
+            holder.itemTitle.setText("No record");
         }
     }
 
@@ -56,20 +63,31 @@ public class RecordListAdapter extends RecyclerView.Adapter<RecordListAdapter.Re
         return mRecordList.get(position);
     }
 
-    class RecordViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private final TextView recordItemTitle;
-        private int id;
+    class RecordViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+        private final TextView itemTitle;
+        private final TextView itemDate;
+        private final TextView itemHour;
 
         private RecordViewHolder(View itemView) {
             super(itemView);
-            recordItemTitle = itemView.findViewById(R.id.textView);
+            itemTitle = itemView.findViewById(R.id.textView);
+            itemDate = itemView.findViewById(R.id.dateTextView);
+            itemHour = itemView.findViewById(R.id.hourTextView);
+            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            if (mRecordList != null && id>=0) {
-                //TODO: SHOW DATA
-            }
+            int position = getLayoutPosition();
+            Record element = mRecordList.get(position);
+            Intent intent = new Intent(mContextWeakReference.get(), RecordActivity.class);
+            intent.putExtra(Constants.KEY_RECORD_ID, element.id);
+            mContextWeakReference.get().startActivity(intent);
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            return false;
         }
     }
 }
