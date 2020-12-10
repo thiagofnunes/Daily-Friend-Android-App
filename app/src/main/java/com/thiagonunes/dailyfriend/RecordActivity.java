@@ -1,13 +1,13 @@
 package com.thiagonunes.dailyfriend;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.arch.lifecycle.ViewModelStore;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.thiagonunes.dailyfriend.database.RecordRepository;
 import com.thiagonunes.dailyfriend.model.MyViewModelFactory;

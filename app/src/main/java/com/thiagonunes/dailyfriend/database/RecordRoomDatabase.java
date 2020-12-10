@@ -1,13 +1,15 @@
 package com.thiagonunes.dailyfriend.database;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
+
 import android.content.Context;
+
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 import com.thiagonunes.dailyfriend.model.Record;
 
-@Database(entities = {Record.class}, version = 1, exportSchema = false)
+@Database(entities = {Record.class}, version = 2, exportSchema = false)
 public abstract class RecordRoomDatabase extends RoomDatabase {
 
     public abstract RecordDao recordDao();
@@ -18,7 +20,7 @@ public abstract class RecordRoomDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             synchronized (RecordRoomDatabase.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), RecordRoomDatabase.class, "records_database").build();
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), RecordRoomDatabase.class, "records_database").fallbackToDestructiveMigration().build();
                 }
             }
         }
