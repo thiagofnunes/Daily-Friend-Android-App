@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Companheiro Diário</string>
+    <string name="action_settings">Configurações</string>
+    <string name="next">Próximo</string>
+    <string name="previous">Anterior</string>
+    <string name="title">Título</string>
+    <string name="text">Texto</string>
+    <string name="delete">Apagar</string>
+    <string name="message">Mensagem</string>
+    <string name="record">Gravar</string>
+    <string name="save">Salvar</string>
+    <string name="delete_all">Apagar todos</string>
+</resources>
