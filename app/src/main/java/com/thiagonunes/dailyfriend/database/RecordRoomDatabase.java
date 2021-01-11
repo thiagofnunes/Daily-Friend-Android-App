@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 
 import com.thiagonunes.dailyfriend.model.Record;
 
-@Database(entities = {Record.class}, version = 2, exportSchema = false)
+@Database(entities = {Record.class}, version = 3, exportSchema = false)
 public abstract class RecordRoomDatabase extends RoomDatabase {
 
     public abstract RecordDao recordDao();

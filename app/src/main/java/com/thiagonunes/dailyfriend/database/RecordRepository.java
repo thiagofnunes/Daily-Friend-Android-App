@@ -13,7 +13,6 @@ public class RecordRepository {
 
     private RecordDao mRecordDao;
     private LiveData<List<Record>> mAllRecords;
-    private LiveData<Record> mRecord;
 
     public RecordRepository(Application application) {
         RecordRoomDatabase db = RecordRoomDatabase.getDatabase(application);
@@ -83,5 +82,6 @@ public class RecordRepository {
             return null;
         }
     }
+
 
 }

@@ -9,5 +9,32 @@
     <string name="message">Message</string>
     <string name="record">Record</string>
     <string name="save">Save</string>
-    <string name="delete_all">Delete All</string>
+    <string name="delete_all">Delete All Records</string>
+    <string name="version_formatter">Version %s</string>
+    <string name="multiple_notes_per_day">Multiple notes per day</string>
+    <string name="allow_app_to_multiple">Allow the app to insert multiple notes for the same date</string>
+    <string name="how_are_you_feeling_today">How are you feeling today?</string>
+    <string name="feeling">Feeling</string>
+    <string name="add_feeling">Add feeling</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="no_title">No title</string>
+    <string name="set_message">Please, add a message</string>
+    <string name="feeling_already_exists">Feeling already exists</string>
+    <string name="no_record_has_been_created_yet">No record has been created yet.\n\nTo add click on the \"+\" button</string>
+    <string-array
+        name="feelings_array">
+        <item>Happy</item>
+        <item>Amused</item>
+        <item>Jealous</item>
+        <item>Let Down</item>
+        <item>Sad</item>
+        <item>Crushed</item>
+        <item>Frustrated</item>
+        <item>Relaxed</item>
+        <item>Encouraged</item>
+        <item>Motivated</item>
+        <item>Focused</item>
+        <item>Creative</item>
+    </string-array>
 </resources>

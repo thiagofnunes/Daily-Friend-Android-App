@@ -5,7 +5,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecordActivity">
+    tools:context=".RecordActivity"
+   >
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/how_are_you_feeling_today"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_feelings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/add_imageview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_selected_feelings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerview_feelings" />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -14,22 +47,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/recyclerview_selected_feelings">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/title_editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/title"
-            android:inputType="textMultiLine"/>
+            android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailTextInputLayout"
+        android:id="@+id/messageTextInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -42,13 +74,26 @@
         app:layout_constraintTop_toBottomOf="@+id/text_input_layout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailTextInputEditText"
+            android:id="@+id/messageTextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="top|start"
-            android:inputType="textMultiLine|textEmailAddress" />
+            android:inputType="textMultiLine|textAutoComplete|textAutoCorrect" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/add_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerview_feelings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recyclerview_feelings"
+        app:srcCompat="@drawable/ic_add_32dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,6 @@ public class Record {
     @ColumnInfo(name = "hour")
     public String hour;
 
-
-
+    @ColumnInfo(name = "feelings")
+    public String feelings;
 }

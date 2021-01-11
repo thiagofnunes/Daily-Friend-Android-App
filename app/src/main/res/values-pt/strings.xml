@@ -10,5 +10,32 @@
     <string name="message">Mensagem</string>
     <string name="record">Gravar</string>
     <string name="save">Salvar</string>
-    <string name="delete_all">Apagar todos</string>
+    <string name="delete_all">Apagar todos recordes</string>
+    <string name="version_formatter">Versão %s</string>
+    <string name="multiple_notes_per_day">Várias notas por dia</string>
+    <string name="allow_app_to_multiple">Permitir a inserção de diversas notas para o mesmo dia</string>
+    <string name="how_are_you_feeling_today">Como você está se sentindo hoje?</string>
+    <string-array
+        name="feelings_array">
+        <item>Feliz</item>
+        <item>Divertido</item>
+        <item>Com Ciúmes</item>
+        <item>Decepcionado</item>
+        <item>Triste</item>
+        <item>Esmagado</item>
+        <item>Frustrado</item>
+        <item>Relaxado</item>
+        <item>Encorajado</item>
+        <item>Motivado</item>
+        <item>Focado</item>
+        <item>Criativo</item>
+    </string-array>
+    <string name="feeling">Emoção</string>
+    <string name="add_feeling">Adicionar emoção</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancelar</string>
+    <string name="no_title">Sem título</string>
+    <string name="set_message">Por favor, adicione uma mensagem</string>
+    <string name="feeling_already_exists">Sentimento já existente</string>
+    <string name="no_record_has_been_created_yet">Não foi inserido nenhum recorde.\n\nPara adicionar, clique no botão \"+\"</string>
 </resources>
